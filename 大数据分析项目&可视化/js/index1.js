@@ -21,7 +21,7 @@ var color = d3
 
 function drawchinageo() {
   var path_file_data =
-    "./country/" +
+    "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/country/" +
     year +
     month +
     "/CN-Reanalysis-daily-" +
