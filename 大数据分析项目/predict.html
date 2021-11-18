@@ -10,21 +10,21 @@
     
     var proname=window.localStorage.proname;
     if(proname=="湖南省"){
-      var cityfilename="./city_for_pre/re_changsha.csv";
+      var cityfilename="re_changsha.csv";
     }else if(proname=="四川省"){
-      var cityfilename="./city_for_pre/re_chengdu.csv";
+      var cityfilename="re_chengdu.csv";
     }else if(proname=="黑龙江省"){
-      var cityfilename="./city_for_pre/re_haerbin.csv";
+      var cityfilename="re_haerbin.csv";
     }else if(proname=="浙江省"){
-      var cityfilename="./city_for_pre/re_hangzhou.csv";
+      var cityfilename="re_hangzhou.csv";
     }else if(proname=="山东省"){
-      var cityfilename="./city_for_pre/re_jinan.csv";
+      var cityfilename="re_jinan.csv";
     }else if(proname=="河南省"){
-      var cityfilename="./city_for_pre/re_zhengzhou.csv";
+      var cityfilename="re_zhengzhou.csv";
     }else if(proname=="内蒙古自治区"){
-      var cityfilename="./city_for_pre/re_wulumuqi.csv";
+      var cityfilename="re_wulumuqi.csv";
     }
-    var a = Promise.resolve(d3.csv(cityfilename));
+    var a = Promise.resolve(d3.csv("https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/"+cityfilename));
     a.then(function (result) {
       console.log(result);
       console.log(result.length);
