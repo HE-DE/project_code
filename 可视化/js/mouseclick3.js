@@ -3,21 +3,21 @@ function mouseclick3(event, d) {
   console.log(d.properties);
   var cityfilename;
   if (cityname == "太原市") {
-    cityfilename = "./city_time/taiyuan.csv";
+    cityfilename = "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_time/taiyuan.csv";
   } else if (cityname == "哈尔滨市") {
-    cityfilename = "./city_time/haerbin.csv";
+    cityfilename = "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_time/haerbin.csv";
   } else if (cityname == "长沙市") {
-    cityfilename = "./city_time/changsha.csv";
+    cityfilename = "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_time/changsha.csv";
   } else if (cityname == "成都市") {
-    cityfilename = "./city_time/chengdu.csv";
+    cityfilename = "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_time/chengdu.csv";
   } else if (cityname == "杭州市") {
-    cityfilename = "./city_time/hangzhou.csv";
+    cityfilename = "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_time/hangzhou.csv";
   } else if (cityname == "济南市") {
-    cityfilename = "./city_time/jinan.csv";
+    cityfilename = "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_time/jinan.csv";
   } else if (cityname == "乌鲁木齐市") {
-    cityfilename = "./city_time/wulumuqi.csv";
+    cityfilename = "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_time/wulumuqi.csv";
   }else if (cityname == "郑州市") {
-    cityfilename = "./city_time/zhengzhou.csv";
+    cityfilename = "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_time/zhengzhou.csv";
   }
   function drawchart(pollutant) {
     d3.select("#svg3").remove();

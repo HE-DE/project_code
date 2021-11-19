@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>大气分析</title>
+    <style>
+        .divleft_top{
+            position:absolute;
+            top: 0;
+            right:680px;
+        }
+        .divright_top{
+            position:absolute;
+            top: 0;
+            right:10px;
+        }
+        .divleft_bottom{
+            position:absolute;
+            top: 500px;
+            right:680px;
+        }
+    </style>
 </head>
 <body>
-<div>
-    <iframe src="hotmap_for_country.html" width="750" height="500"></iframe>
+<div id="view1">
+    <iframe id="chart1" class="divleft_top" src="hotmap_for_country.html" width="750" height="500"></iframe>
+</div>
+<div id="view2">
+    <iframe id="chart2" class="divright_top" src="geo_pro.html" width="665" height="845"></iframe>
+</div>
+<div id="view3">
+    <iframe id="chart3" class="divleft_bottom" src="hotmap_for_country.html" width="750" height="345"></iframe>
 </div>
 </body>
 </html>

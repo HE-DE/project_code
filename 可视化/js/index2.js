@@ -9,8 +9,8 @@ year = window.localStorage.year;
 month = window.localStorage.mon;
 day = window.localStorage.day;
 date.value = year + "-" + month + "-" + day;
-var proname = get_proname();
-var pproname = Array.from(window.localStorage.name.split(","));
+var proname = "shandong.json";
+var pproname = "山东省";
 
 var color = d3
   .scaleLinear() //AQI颜色比例尺
@@ -29,7 +29,7 @@ function drawgeo() {
   var psn = proname.split(".");
   var pst = psn[0];
   var path_file_data =
-    "./city/" +
+    "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city/" +
     pst +
     "/" +
     year +
@@ -265,11 +265,29 @@ function change(event) {
   year = ymd[0] + ymd[1] + ymd[2] + ymd[3];
   month = ymd[5] + ymd[6];
   day = ymd[8] + ymd[9];
+  window.localStorage.ymd=ymd;
   d3.select("#svg").remove();
   d3.select("#svg1").remove();
   d3.select("#svg2").remove();
   d3.select("#svg3").remove();
   drawgeo();
 }
-
+window.addEventListener('storage',event=>{
+    if(event.key==='name'){
+        pproname=event.newValue;
+        proname=get_proname()
+    }else if(event.key==='ymd')
+    {
+        ymd=event.newValue;
+        year = ymd[0] + ymd[1] + ymd[2] + ymd[3];
+        month = ymd[5] + ymd[6];
+        day = ymd[8] + ymd[9];
+        date.value = year + "-" + month + "-" + day;
+    }
+    d3.select("#svg").remove();
+    d3.select("#svg1").remove();
+    d3.select("#svg2").remove();
+    d3.select("#svg3").remove();
+    drawgeo()
+})
 drawgeo();

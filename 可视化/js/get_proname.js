@@ -1,5 +1,10 @@
 function get_proname() {
   var proname = Array.from(window.localStorage.name.split(","));
+  window.addEventListener('storage',event=>{
+    if(event.key==='name'){
+      proname=event.newValue;
+    }
+  })
   if (proname == "安徽省") {
     proname = "anhui.json";
   } else if (proname == "澳门特别行政区") {
