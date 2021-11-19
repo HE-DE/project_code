@@ -29,7 +29,7 @@ function drawgeo() {
   var psn = proname.split(".");
   var pst = psn[0];
   var path_file_data =
-    "./city/" +
+    "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city/" +
     pst +
     "/" +
     year +

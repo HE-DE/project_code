@@ -18,7 +18,7 @@ window.localStorage.mon = month;
 window.localStorage.day = day;
 console.log(date.value);
 var filepath =
-  "https://raw.githubusercontent.com/HE-DE/-/main/Echarts/asset/wind_csv/" +
+  "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/wind_csv/" +
   year +
   month +
   "/wind-" +
@@ -292,7 +292,7 @@ function change(event) {
   window.localStorage.mon = month;
   window.localStorage.day = day;
   filepath =
-    "https://raw.githubusercontent.com/HE-DE/-/main/Echarts/asset/wind_csv/" +
+    "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/wind_csv/" +
     year +
     month +
     "/wind-" +

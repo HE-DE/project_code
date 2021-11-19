@@ -3,21 +3,21 @@ function mouseclick3(event, d) {
   console.log(d.properties);
   var cityfilename;
   if (cityname == "太原市") {
-    cityfilename = "./city_time/taiyuan.csv";
+    cityfilename = "taiyuan.csv";
   } else if (cityname == "哈尔滨市") {
-    cityfilename = "./city_time/haerbin.csv";
+    cityfilename = "haerbin.csv";
   } else if (cityname == "长沙市") {
-    cityfilename = "./city_time/changsha.csv";
+    cityfilename = "changsha.csv";
   } else if (cityname == "成都市") {
-    cityfilename = "./city_time/chengdu.csv";
+    cityfilename = "chengdu.csv";
   } else if (cityname == "杭州市") {
-    cityfilename = "./city_time/hangzhou.csv";
+    cityfilename = "hangzhou.csv";
   } else if (cityname == "济南市") {
-    cityfilename = "./city_time/jinan.csv";
+    cityfilename = "jinan.csv";
   } else if (cityname == "乌鲁木齐市") {
-    cityfilename = "./city_time/wulumuqi.csv";
+    cityfilename = "wulumuqi.csv";
   }else if (cityname == "郑州市") {
-    cityfilename = "./city_time/zhengzhou.csv";
+    cityfilename = "zhengzhou.csv";
   }
   function drawchart(pollutant) {
     d3.select("#svg3").remove();
@@ -56,7 +56,7 @@ function mouseclick3(event, d) {
       })
       .attr("font-size", "20px")
       .on("click", mouseclick4);
-    d3.csv(cityfilename, (d) => {
+    d3.csv("https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_time/"+cityfilename, (d) => {
       if (pollutant == "PM2.5(μg/m3)") {
         return {
           Time: d3.timeParse("%Y-%m-%d")(d.Time),
