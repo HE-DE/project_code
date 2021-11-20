@@ -172,7 +172,7 @@ function drawchinageo() {
                     return "translate(" + x + ", " + y + ")";
                 })
                 .attr("fill", "#AAA")
-                .attr("font-size", "1px")
+                .attr("font-size", "5px")
                 .on("click", function (d, data) {
                     window.localStorage.name = data.properties.name;
                     window.localStorage.year = year;
@@ -204,22 +204,23 @@ function change(event) {
     year = ymd[0] + ymd[1] + ymd[2] + ymd[3];
     month = ymd[5] + ymd[6];
     day = ymd[8] + ymd[9];
-    window.localStorage.ymd=ymd;
+    window.localStorage.ymd = ymd;
     drawchinageo();
 }
-window.addEventListener('storage',event=>{
-    if(event.key==='ymd')
-    {
-        ymd=event.newValue;
+
+window.addEventListener('storage', event => {
+    if (event.key === 'ymd') {
+        ymd = event.newValue;
         year = ymd[0] + ymd[1] + ymd[2] + ymd[3];
         month = ymd[5] + ymd[6];
         day = ymd[8] + ymd[9];
         date.value = year + "-" + month + "-" + day;
+
+        d3.select("#svg").remove();
+        d3.select("#svg1").remove();
+        d3.select("#svg2").remove();
+        d3.select("#svg3").remove();
+        drawchinageo();
     }
-    d3.select("#svg").remove();
-    d3.select("#svg1").remove();
-    d3.select("#svg2").remove();
-    d3.select("#svg3").remove();
-    drawchinageo();
 })
 drawchinageo();

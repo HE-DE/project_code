@@ -22,7 +22,7 @@ function mouseclick3(event, d) {
   function drawchart(pollutant) {
     d3.select("#svg3").remove();
     const margin = { top: 60, right: 230, bottom: 50, left: 50 },
-      width = 1100 - margin.left - margin.right,
+      width = 850 - margin.left - margin.right,
       height = 300 - margin.top - margin.bottom;
     const svg3 = d3
       .select("#duibi")
@@ -43,7 +43,7 @@ function mouseclick3(event, d) {
         return d;
       })
       .attr("transform", function (d, i) {
-        var x = i * 180;
+        var x = i * 80;
         var y = margin.top - 100;
         return "translate(" + x + ", " + y + ")";
       })
@@ -54,7 +54,7 @@ function mouseclick3(event, d) {
           return "black";
         }
       })
-      .attr("font-size", "20px")
+      .attr("font-size", "10px")
       .on("click", mouseclick4);
     d3.csv(cityfilename, (d) => {
       if (pollutant == "PM2.5(μg/m3)") {
