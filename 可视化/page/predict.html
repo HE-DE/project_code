@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
   <meta charset="utf-8" />
-  <script src="./js/echarts.js"></script>
-  <script src="./js/d3.min.js"></script>
+  <script src="../js/echarts.js"></script>
+  <script src="../js/d3.min.js"></script>
   <body>
     <div id="main" style="width: 1200px; height: 700px"></div>
   </body>
   <script>
     
     var proname=window.localStorage.proname;
-    if(proname=="湖南省"){
+    if(proname==="湖南省"){
       var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_changsha.csv";
-    }else if(proname=="四川省"){
+    }else if(proname==="四川省"){
       var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_chengdu.csv";
-    }else if(proname=="黑龙江省"){
+    }else if(proname==="黑龙江省"){
       var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_haerbin.csv";
-    }else if(proname=="浙江省"){
+    }else if(proname==="浙江省"){
       var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_hangzhou.csv";
-    }else if(proname=="山东省"){
+    }else if(proname==="山东省"){
       var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_jinan.csv";
-    }else if(proname=="河南省"){
+    }else if(proname==="河南省"){
       var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_zhengzhou.csv";
-    }else if(proname=="内蒙古自治区"){
+    }else if(proname==="内蒙古自治区"){
       var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_wulumuqi.csv";
     }
     var a = Promise.resolve(d3.csv(cityfilename));

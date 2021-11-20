@@ -29,7 +29,7 @@ function drawchinageo() {
         month +
         day +
         "00.csv";
-    d3.json("china.json").then(function (data) {
+    d3.json("../china.json").then(function (data) {
         //读取地图数据
         var projection = d3
             .geoMercator() //投影

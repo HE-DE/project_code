@@ -46,7 +46,7 @@ function drawgeo() {
     var tra = par[1];
     var sca = par[2];
 
-    d3.json("./geo_pro_json/" + proname).then(function (data) {
+    d3.json("../geo_pro_json/" + proname).then(function (data) {
         //读取地图数据
         console.log(data);
         var projection = d3
@@ -191,17 +191,23 @@ window.addEventListener('storage', event => {
     if (event.key === 'name') {
         pproname = event.newValue;
         proname = get_proname()
+        d3.select("#svg").remove();
+        d3.select("#svg1").remove();
+        d3.select("#svg2").remove();
+        d3.select("#svg3").remove();
+        drawgeo()
     } else if (event.key === 'ymd') {
         ymd = event.newValue;
         year = ymd[0] + ymd[1] + ymd[2] + ymd[3];
         month = ymd[5] + ymd[6];
         day = ymd[8] + ymd[9];
         date.value = year + "-" + month + "-" + day;
+        d3.select("#svg").remove();
+        d3.select("#svg1").remove();
+        d3.select("#svg2").remove();
+        d3.select("#svg3").remove();
+        drawgeo()
     }
-    d3.select("#svg").remove();
-    d3.select("#svg1").remove();
-    d3.select("#svg2").remove();
-    d3.select("#svg3").remove();
-    drawgeo()
+
 })
 drawgeo();
