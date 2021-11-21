@@ -1,5 +1,38 @@
-function min_barchart(d) {
+function deal_with_txt(pollution) {
+    if (pollution === "PM2.5(μg/m3)") {
+        return "log(PM2.5(微克每立方米))";
+    } else if (pollution === "CO(mg/m3)") {
+        return "log(CO(微克每立方米))";
+    } else if (pollution === "PM10(μg/m3)") {
+        return "log(PM10(微克每立方米))";
+    } else if (pollution === "SO2(μg/m3)") {
+        return "log(SO2(微克每立方米))";
+    } else if (pollution === "NO2(μg/m3)") {
+        return "log(NO2(微克每立方米))";
+    } else if (pollution === "O3(μg/m3)") {
+        return "log(O3(微克每立方米))";
+    }
+}
+function reback_txt(pollution){
+    if (pollution === "log(PM2.5(微克每立方米))") {
+        return "PM2.5(μg/m3)";
+    } else if (pollution === "log(CO(微克每立方米))") {
+        return "CO(mg/m3)";
+    } else if (pollution === "log(PM10(微克每立方米))") {
+        return "PM10(μg/m3)";
+    } else if (pollution === "log(SO2(微克每立方米))") {
+        return "SO2(μg/m3)";
+    } else if (pollution === "log(NO2(微克每立方米))") {
+        return "NO2(μg/m3)";
+    } else if (pollution === "log(O3(微克每立方米))") {
+        return "O3(μg/m3)";
+    }
+}
+
+function min_barchart(d, pollution = "PM2.5(μg/m3)") {
     d3.select("#svg1").remove();
+    var goal = deal_with_txt(pollution);
+    //console.log(goal);
     var ddata = [];
     var jst = {};
     var flag = false;
@@ -80,9 +113,13 @@ function min_barchart(d) {
         .attr("x", (d) => x(d.group))
         .attr("width", x.bandwidth())
         .attr("fill", function (d) {
-            if (d.group == major) {
+            if (d.group === major && d.group === goal) {
                 return "#98289b";
-            } else {
+            } else if (d.group === major&& d.group !== goal) {
+                return "#0724e1"
+            } else if(d.group === goal){
+                return "#f8d161"
+            }else {
                 return "#28c9d9";
             }
         })
@@ -116,8 +153,9 @@ function getColor(idx) {
     return palette[idx % palette.length];
 }
 
-function min_radarchart(pdata) {
+function min_radarchart(pdata,pollution="PM2.5(μg/m3)") {
     d3.select("#svg1").remove();
+    var goal = deal_with_txt(pollution);
     var width = 600, height = 300;
     // 创建一个分组用来组合要画的图表元素
     var main = d3.select('.container').append('svg')
@@ -287,9 +325,20 @@ function min_radarchart(pdata) {
             return d.y;
         })
         .attr("font-size", 10)
+        .attr("fill",function (d,i){
+            if(data.fieldNames[i]===goal){
+                return "#e30f5f";
+            }
+        })
         .text(function (d, i) {
             return data.fieldNames[i];
         });
+    texts.selectAll('text')
+        .data(data.fieldNames)
+        .on("click",function (event,d){
+            var rtxt=reback_txt(d);
+            min_radarchart(pdata,rtxt);
+        })
 }
 
 function data_min_chart(pst, ymd, type) {

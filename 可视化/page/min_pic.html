@@ -76,8 +76,9 @@
     if (init_chartname === 'BarChart') {
         min_barchart(pdata);
     } else if (init_chartname === 'RadarChart') {
-        radarchart(pdata);
+        min_radarchart(pdata);
     }
+    var pollution="PM2.5(微克每立方米)";
     window.addEventListener("storage", event => {
         if (event.key === 'id') {
             pdata = {
@@ -106,6 +107,16 @@
                 data_min_chart(ppst,mymd,"bar");
             } else if (chartname === 'RadarChart') {
                 data_min_chart(ppst,mymd,"rar");
+            }
+        }else if(event.key==='pollution'){
+            pollution=event.newValue;
+            console.log(pollution);
+            var chartname = document.getElementById("myselect").value;
+            console.log(chartname)
+            if (chartname === 'BarChart') {
+                min_barchart(pdata,pollution);
+            } else if (chartname === 'RadarChart') {
+                min_radarchart(pdata,pollution);
             }
         }
     })
