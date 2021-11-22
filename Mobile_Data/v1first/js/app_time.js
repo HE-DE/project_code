@@ -5,9 +5,12 @@ setTimeout(function(){
 	
 	    var option;
 	
-	    var app_name = ["A", "B", "C", "D", 'E', 'F', 'G'];//app名称
-	    var app_time = [320, 302, 301, 334, 390, 330, 320];//app使用时间，与y轴的值一一对应，单位：分钟
-	    
+	    var app_name = ["哔哩哔哩", "抖音", "QQ", "明日方舟", '小黑盒', '微信', '浏览器','百度网盘','我的侠客','美团外卖','掌上英雄联盟','支付宝'];//app名称
+	    var app_time = [1151, 479, 253, 237, 235, 127, 48,44,36,22,14,11];//app使用时间，与y轴的值一一对应，单位：分钟
+	//     for(var i=0;i<app_time.length;i++)
+	// 	{
+	// 		app_time[i]=Math.log(app_time[i]);
+	// 	}
 	
 	    option = {
 	      tooltip: {
@@ -28,7 +31,9 @@ setTimeout(function(){
 	        containLabel: true
 	      },
 	      xAxis: {
-	        type: 'value'//app使用时间，单位：分钟
+	       type: 'log',
+	        min:1,
+	        logBase:3
 	      },
 	      yAxis: {
 	        type: 'category',

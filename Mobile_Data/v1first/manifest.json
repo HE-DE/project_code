@@ -97,21 +97,8 @@
                 "android" : {}
             },
             "plugins" : {
-                "oauth" : {
-                    "weixin" : {
-                        "appid" : "",
-                        "appsecret" : "",
-                        "UniversalLinks" : ""
-                    },
-                    "qq" : {
-                        "appid" : ""
-                    },
-                    "sina" : {
-                        "appkey" : "",
-                        "appsecret" : "",
-                        "redirect_uri" : ""
-                    }
-                }
+                "oauth" : {},
+                "ad" : {}
             }
         }
     },
@@ -206,5 +193,6 @@
             ]
         }
     },
-    "unpackage" : [ "README.md" ]
+    "unpackage" : [ "README.md" ],
+    "screenOrientation" : [ "portrait-primary", "portrait-secondary" ]
 }
