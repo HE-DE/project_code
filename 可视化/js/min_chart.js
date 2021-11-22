@@ -378,3 +378,4 @@ function data_min_chart(pst, ymd, type) {
         }
     })
 }
+
