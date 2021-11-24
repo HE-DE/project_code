@@ -32,6 +32,9 @@ var battery = Promise.resolve(d3.csv("https://raw.githubusercontent.com/HE-DE/DA
 			            }
 			        },
 			        xAxis: {
+						name:'日期',
+						nameLocation:"middle",
+						nameTextStyle:{padding: 5},
 			            type: 'time',
 			            boundaryGap: false,
 			            splitLine: {
@@ -39,6 +42,7 @@ var battery = Promise.resolve(d3.csv("https://raw.githubusercontent.com/HE-DE/DA
 			            }
 			        },
 			        yAxis: {
+						name:'毫安时(mAh)',
 			            type: 'value',
 			            min: 0,
 			            max: 100,
@@ -56,7 +60,7 @@ var battery = Promise.resolve(d3.csv("https://raw.githubusercontent.com/HE-DE/DA
 			        ],
 			        series: [
 			            {
-			                name: 'Fake Data',
+			                name: '电池电量',
 			                type: 'line',
 			                symbol: 'none',
 			                sampling: 'lttb',

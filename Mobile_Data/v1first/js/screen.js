@@ -111,6 +111,8 @@ setTimeout(function(){
 				            height: 50
 				        },
 				        xAxis: {
+							name:'日期',
+							nameLocation:"middle",
 				            type: "time",
 				            min: startTime,
 				

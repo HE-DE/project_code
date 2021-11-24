@@ -31,14 +31,19 @@ setTimeout(function(){
 	        containLabel: true
 	      },
 	      xAxis: {
-	       type: 'log',
+			name:'时间(min)',
+			nameLocation:"middle",
+			nameTextStyle: {//字体样式
+			            padding: 5 //距离坐标位置的距离
+			      },
+	        type: 'log',
 	        min:1,
-	        logBase:3
+	        logBase:3,
+			data:app_time
 	      },
 	      yAxis: {
 	        type: 'category',
 	        data: app_name
-	        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']//app名称
 	      },
 	      series: [
 	        {
@@ -48,9 +53,7 @@ setTimeout(function(){
 	          label: {
 	            show: true
 	          },
-	
 	          data: app_time
-	          // data: [320, 302, 301, 334, 390, 330, 320]//app使用时间，与y轴的值一一对应，单位：分钟
 	        },
 	      ]
 	    };

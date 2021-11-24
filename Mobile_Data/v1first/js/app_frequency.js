@@ -67,6 +67,7 @@ setTimeout(function() {
 	
 	    },
 	    yAxis: {
+			name:"次数",
 	      type: 'value'
 	    },
 	    tooltip: {
