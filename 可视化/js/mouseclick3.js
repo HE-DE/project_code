@@ -60,6 +60,7 @@ function mouseclick3(event, d) {
             .on("click.2", function (event, d) {
                 window.localStorage.pollution = d;
             })
+            .call(trans);
         d3.csv(cityfilename, (d) => {
             if (pollutant == "PM2.5(μg/m3)") {
                 return {
@@ -195,6 +196,13 @@ function mouseclick3(event, d) {
         var plu = d;
         drawchart(plu);
     }
-
+    function trans(){
+        window.addEventListener("storage",event1=>{
+            if(event1.key==='pollution1'){
+                pollution=reback_txt(event1.newValue);
+                drawchart(pollution);
+            }
+        })
+    }
     drawchart("PM2.5(μg/m3)");
 }

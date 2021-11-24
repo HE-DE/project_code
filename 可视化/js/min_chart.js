@@ -339,6 +339,7 @@ function min_radarchart(pdata,pollution="PM2.5(μg/m3)") {
         .on("click",function (event,d){
             var rtxt=reback_txt(d);
             min_radarchart(pdata,rtxt);
+            window.localStorage.pollution1=d;
         })
 }
 
@@ -384,7 +385,8 @@ function scatterchart(ymd,pname,poluname_x,poluname_y){
     var mbyear = ymd[0] + ymd[1] + ymd[2] + ymd[3];
     var mbmonth = ymd[5] + ymd[6];
     var mbday = ymd[8] + ymd[9];
-    pname=get_proname(pname);
+    console.log(pname);
+    pname=get_pname(pname);
     pname=pname.split(".");
     pname=pname[0];
     console.log(pname);
