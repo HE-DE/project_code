@@ -29,6 +29,7 @@ function reback_txt(pollution){
     }
 }
 
+
 function min_barchart(d, pollution = "PM2.5(μg/m3)") {
     d3.select("#svg1").remove();
     var goal = deal_with_txt(pollution);
@@ -379,3 +380,89 @@ function data_min_chart(pst, ymd, type) {
     })
 }
 
+function scatterchart(ymd,pname,poluname_x,poluname_y){
+    var mbyear = ymd[0] + ymd[1] + ymd[2] + ymd[3];
+    var mbmonth = ymd[5] + ymd[6];
+    var mbday = ymd[8] + ymd[9];
+    pname=get_proname(pname);
+    pname=pname.split(".");
+    pname=pname[0];
+    console.log(pname);
+    console.log(poluname_x);
+    console.log(poluname_y);
+    var path_file_data =
+        "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city/" +
+        pname +
+        "/" +
+        mbyear +
+        mbmonth +
+        "/CN-Reanalysis-daily-" +
+        mbyear +
+        mbmonth +
+        mbday +
+        "00.csv";
+    console.log(path_file_data);
+    d3.select("#svg1").remove();
+    const margin = {top: 10, right: 30, bottom: 20, left: 60},
+        width = 600 - margin.left - margin.right,
+        height = 270 - margin.top - margin.bottom;
+    const svg = d3.select("#scatterchart")
+        .append("svg")
+        .attr("id","svg1")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`)
+    d3.csv(path_file_data).then(function (data){
+        var rel_data=[];
+        var max_x=0;
+        var max_y=0;
+        let ttop = [];
+        let yyop=[];
+        for(var i=0;i<data.length;i++){
+           var item_data={"x":data[i][poluname_x],"y":data[i][poluname_y]};
+           rel_data.push(item_data);
+            ttop.push(data[i][poluname_x]);
+            yyop.push(data[i][poluname_y]);
+        }
+        console.log(ttop);
+        max_x = Math.max.apply(null, ttop);
+        max_y = Math.max.apply(null, yyop);
+        console.log(max_y);
+        const x = d3.scaleLinear()
+            .domain([0, 0])
+            .range([ 0, width]);
+        svg.append("g")
+            .attr("class", "myXaxis")
+            .attr("transform", `translate(0, ${height})`)
+            .call(d3.axisBottom(x))
+            .attr("opacity", "0")
+        const y = d3.scaleLinear()
+            .domain([0, max_y+10])
+            .range([ height, 0]);
+        svg.append("g")
+            .call(d3.axisLeft(y));
+        svg.append('g')
+            .selectAll("dot")
+            .data(rel_data)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) { return x(d.x); } )
+            .attr("cy", function (d) { return y(d.y); } )
+            .attr("r", 1.5)
+            .style("fill", "#69b3a2")
+        x.domain([0, max_x+10])
+        svg.select(".myXaxis")
+            .transition()
+            .duration(2000)
+            .attr("opacity", "1")
+            .call(d3.axisBottom(x));
+
+        svg.selectAll("circle")
+            .transition()
+            .delay(function(d,i){return(i*3)})
+            .duration(2000)
+            .attr("cx", function (d) { return x(d.x); } )
+            .attr("cy", function (d) { return y(d.y); } )
+    });
+}
