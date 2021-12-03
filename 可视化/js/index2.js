@@ -137,13 +137,13 @@ function drawgeo() {
                 .html(function (d, i) {
                     console.log(d.target.__data__);
                     return (
-                        "<strong>id: </strong><span ><font color='black'>" +
-                        i["id"] +
-                        "<br></font></span>" +
-                        "<strong>AQI: </strong><span ><font color='black'>" +
+                        // "<strong>id: </strong><span ><font color='white'>" +
+                        // i["id"] +
+                        // "<br></font></span>" +
+                        "<strong>AQI: </strong><span ><font color='white'>" +
                         i["AQI"] +
                         "<br></font></span>" +
-                        "<strong>Major pollutants: </strong><span><font color='black'>" +
+                        "<strong>Major pollutants: </strong><span><font color='white'>" +
                         i["Major pollutants"] +
                         "<br></font></span>"
                     );
