@@ -115,13 +115,13 @@ function min_barchart(d, pollution = "PM2.5(μg/m3)") {
         .attr("width", x.bandwidth())
         .attr("fill", function (d) {
             if (d.group === major && d.group === goal) {
-                return "#98289b";
+                return "#d7301f";
             } else if (d.group === major&& d.group !== goal) {
-                return "#0724e1"
+                return "#fc8d59"
             } else if(d.group === goal){
-                return "#f8d161"
+                return "#fdcc8a"
             }else {
-                return "#28c9d9";
+                return "#fef0d9";
             }
         })
         .attr("height", (d) => height - y(0)) // always equal to 0

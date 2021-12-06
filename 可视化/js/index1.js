@@ -10,13 +10,13 @@ var color = d3
     .scaleLinear() //AQI颜色比例尺
     .domain([0, 50, 100, 150, 200, 300, 501])
     .range([
-        "rgba(0,255,0,0.8)",
-        "rgba(255,255,0,0.8)",
-        "rgba(255,165,0,0.8)",
-        "rgba(255,0,0,0.8)",
-        "rgba(160,32,240,0.8)",
-        "rgba(139,0,0,0.8)",
-        "rgba(28,28,28,0.8)",
+        "#fef0d9",
+        "#fdd49e",
+        "#fdbb84",
+        "#fc8d59",
+        "#ef6548",
+        "#d7301f",
+        "#990000",
     ]);
 
 function drawchinageo() {
@@ -48,6 +48,31 @@ function drawchinageo() {
             .attr("width", "750")
             .attr("height", "500");
         var g = svg.append("g").attr("id", "g"); //画出地图
+
+        d3.select('svg').selectAll('geopath').remove();
+        svg.selectAll("geopath")
+            .data(data.features)
+            .enter()
+            .append("path")
+            .attr("d", geopath)
+            .on("mouseover",function(d,i){
+                d3.select(this)
+                    .attr("opacity","0.4");
+            })
+            .on("mouseout",function(d,i){
+                d3.select(this)
+                    .transition()
+                    .duration(500)
+                    .attr("opacity","0");
+            })
+            .on("click",function(n,d){
+                window.localStorage.name = d.properties.name;
+                window.localStorage.year = year;
+                window.localStorage.mon = month;
+                window.localStorage.day = day;
+            })
+            .attr("fill", "rgba(248,244,244)")
+            .attr("opacity","0")
 
         var g1 = svg.select("g");
 
@@ -82,7 +107,7 @@ function drawchinageo() {
                 .attr("y", 370)
                 .attr("width", 25)
                 .attr("height", 15)
-                .attr("fill", "#33FF00");
+                .attr("fill", "#fef0d9");
             svg
                 .selectAll("#g")
                 .append("line")
@@ -156,29 +181,29 @@ function drawchinageo() {
                 .style("fill-opacity", "0.0")
                 .attr("d", geopath);
 
-            var texts = svg
-                .selectAll(".texts")
-                .data(data.features)
-                .enter()
-                .append("text")
-                .attr("class", "texts")
-                .text(function (d) {
-                    return d.properties.name;
-                })
-                .attr("transform", function (d) {
-                    var centroid = geopath.centroid(d),
-                        x = centroid[0],
-                        y = centroid[1];
-                    return "translate(" + x + ", " + y + ")";
-                })
-                .attr("fill", "#AAA")
-                .attr("font-size", "5px")
-                .on("click", function (d, data) {
-                    window.localStorage.name = data.properties.name;
-                    window.localStorage.year = year;
-                    window.localStorage.mon = month;
-                    window.localStorage.day = day;
-                })
+            // var texts = svg
+            //     .selectAll(".texts")
+            //     .data(data.features)
+            //     .enter()
+            //     .append("text")
+            //     .attr("class", "texts")
+            //     .text(function (d) {
+            //         return d.properties.name;
+            //     })
+            //     .attr("transform", function (d) {
+            //         var centroid = geopath.centroid(d),
+            //             x = centroid[0],
+            //             y = centroid[1];
+            //         return "translate(" + x + ", " + y + ")";
+            //     })
+            //     .attr("fill", "rgba(170,170,170,0)")
+            //     .attr("font-size", "5px")
+            //     .on("click", function (d, data) {
+            //         window.localStorage.name = data.properties.name;
+            //         window.localStorage.year = year;
+            //         window.localStorage.mon = month;
+            //         window.localStorage.day = day;
+            //     })
             svg.call(
                 d3
                     .zoom()

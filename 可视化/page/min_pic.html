@@ -57,7 +57,7 @@
     <option value="BarChart">BarChart</option>
     <option value="RadarChart">RadarChart</option>
     <option value="ScatterChart">ScatterChart</option>
-    <option value="Time_spiral_graph">Time spiral graph</option>
+<!--    <option value="Time_spiral_graph">Time spiral graph</option>-->
 </select>
 <div id="barchart"></div>
 <div id="radarChart" class="container"></div>
@@ -98,9 +98,10 @@
                 min_barchart(pdata);
             } else if (chartname === 'RadarChart') {
                 min_radarchart(pdata);
-            }else if(chartname==='ScatterChart'){
-                window.location.replace("./scatterchart.html")
             }
+        // else if(chartname==='ScatterChart'){
+        //         window.location.replace("./scatterchart.html")
+        //     }
         } else if (event.key === 'ymd') {
             var ppst=window.localStorage.pst;
             var mymd=event.newValue;

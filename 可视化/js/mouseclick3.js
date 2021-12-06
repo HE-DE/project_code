@@ -146,7 +146,7 @@ function mouseclick3(event, d) {
                     .append("path")
                     .datum(data)
                     .attr("class", "myArea")
-                    .attr("fill", "#69b3a2")
+                    .attr("fill", "#d7301f")
                     .attr("fill-opacity", 0.3)
                     .attr("stroke", "black")
                     .attr("stroke-width", 1)

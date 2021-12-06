@@ -1,6 +1,6 @@
 .storke {
-  stroke: rgb(17, 17, 17);
-  stroke-width: 1px;
+  stroke: rgba(194, 191, 191, 0.71);
+  stroke-width: 0.8;
 }
 .d3-tip {
   line-height: 1.5;

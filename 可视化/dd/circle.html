@@ -3,17 +3,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Condegram Spiral Plot</title>
-      <link rel="stylesheet" type="text/css" href="style.css"/>
+      <link rel="stylesheet" href="../css/cind.css" />
+      <link rel="stylesheet" href="../css/geo.css">
       <script data-require="d3@4.0.0" data-semver="4.0.0" src="https://d3js.org/d3.v4.js"></script>
   </head>
   <body>
+  <button onclick="update(first)">2013</button>
+  <button onclick="update(second)">2014</button>
+  <button onclick="update(third)">2015</button>
+  <button onclick="update(fourth)">2016</button>
+  <button onclick="update(fifth)">2017</button>
+  <button onclick="update(sixth)">2018</button>
     <div id="chart"></div>
-<button onclick="update(first)">2013</button>
-<button onclick="update(second)">2014</button>
-<button onclick="update(third)">2015</button>
-<button onclick="update(fourth)">2016</button>
-<button onclick="update(fifth)">2017</button>
-<button onclick="update(sixth)">2018</button>
 <script type="text/javascript">
 var first="2013.csv";
 var second="2014.csv";
@@ -319,7 +320,6 @@ function draw(tem)
   }
 draw(someData)
 })
-  
 })
 }
 update(first); </script>

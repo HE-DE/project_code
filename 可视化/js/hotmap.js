@@ -8,3 +8,11 @@ function windmap() {
   window.localStorage.day = day;
   window.location.replace("../Echarts/echartsnglobal-wind.html");
 }
+
+// function windmap1() {
+//   window.location.replace("../Echarts/echartsnglobal-wind.html");
+// }
+//
+// function Time_spiral() {
+//   window.location.replace("../dd/circle.html");
+// }
