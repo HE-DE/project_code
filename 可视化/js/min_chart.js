@@ -146,7 +146,7 @@ function min_barchart(d, pollution = "PM2.5(μg/m3)") {
 
 function getColor(idx) {
     var palette = [
-        '#2ec7c9', '#b6a2de', '#5ab1ef', '#ffb980', '#d87a80',
+        '#fc8d59', '#b6a2de', '#5ab1ef', '#ffb980', '#d87a80',
         '#8d98b3', '#e5cf0d', '#97b552', '#95706d', '#dc69aa',
         '#07a2a4', '#9a7fd1', '#588dd5', '#f5994e', '#c05050',
         '#59678c', '#c9ab00', '#7eb00a', '#6f5553', '#c14089'
@@ -452,7 +452,7 @@ function scatterchart(ymd,pname,poluname_x,poluname_y){
             .attr("cx", function (d) { return x(d.x); } )
             .attr("cy", function (d) { return y(d.y); } )
             .attr("r", 1.5)
-            .style("fill", "#69b3a2")
+            .style("fill", "#fc8d59")
         x.domain([0, max_x+10])
         svg.select(".myXaxis")
             .transition()
