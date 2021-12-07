@@ -17,14 +17,15 @@
         margin: 0;
         padding: 0;
         font-family: 'ZCOOL KuaiLe', cursive;
+        overflow: hidden;
       }
 
       body {
         max-width: 1920px;
-        background: url(../papyrus.png) no-repeat center center;
-        background-size: cover;
-        background-attachment: fixed;
-        background-color: #cccccc;
+        /*background: url(https://static.runoob.com/images/demo/demo2.jpg) no-repeat center center;*/
+        /*background-size: cover;*/
+        /*background-attachment: fixed;*/
+        background-color: rgba(204, 204, 204, 0.01);
       }
 
       #btn {
@@ -90,6 +91,7 @@
     </form>
     <button class="button button4">全国空气质量热力图</button>
     <button class="button button5" onclick="windmap()">全国风场图</button>
+    <button class="button button5" onclick="cluster1()">模式聚类图</button>
     <svg class="chart"></svg>
   </body>
   <script src="../js/index1.js"></script>

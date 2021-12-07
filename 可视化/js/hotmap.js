@@ -9,10 +9,14 @@ function windmap() {
   window.location.replace("../Echarts/echartsnglobal-wind.html");
 }
 
-// function windmap1() {
-//   window.location.replace("../Echarts/echartsnglobal-wind.html");
-// }
-//
-// function Time_spiral() {
-//   window.location.replace("../dd/circle.html");
-// }
+function cluster() {
+  window.location.replace("../page/cluster.html");
+}
+
+function cluster1() {
+  window.location.replace("../page/cluster.html");
+}
+
+function cluster2(){
+  window.location.replace("../page/hotmap_for_country.html");
+}

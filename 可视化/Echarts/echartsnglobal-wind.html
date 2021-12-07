@@ -17,13 +17,14 @@
     <style>
         *{
             font-family: 'ZCOOL KuaiLe', cursive;
+            /*overflow: hidden;*/
         }
         body {
         max-width: 1920px;
-        background: url(../papyrus.png) no-repeat center center;
-        background-size: cover;
-        background-attachment: fixed;
-        background-color: #cccccc;
+        /*background: url(../papyrus.png) no-repeat center center;*/
+        /*background-size: cover;*/
+        /*background-attachment: fixed;*/
+        background-color: rgba(204, 204, 204, 0.18);
       }
     </style>
 </head>
@@ -37,6 +38,7 @@
     </form>
     <button class="button button5" onclick="hotmap()">全国空气质量热力图</button>
     <button class="button button4">全国风场图</button>
+    <button class="button button5" onclick="cluster()">模式聚类图</button>
     <!-- 为 ECharts 准备一个具备大小的 Dom -->
     <div id="main" style="width: 734px;height: 410px;"></div>
     <script src="./jj.js" type="module">
