@@ -70,9 +70,9 @@ var spiralLength = path.node().getTotalLength(),
   barWidth = (spiralLength / N) - 1;
 
 function update(tmp) {
-  d3.json("chart_data/china.geo.json", function (json) {
+  d3.json("../lib/data/chart_data/china.geo.json", function (json) {
     // Loop through each state data value in the .csv file
-    d3.csv("chart_data/" + tmp, function (data) {
+    d3.csv("../lib/data/chart_data/" + tmp, function (data) {
       var someData = [];
       var pro = 1;
       // L oop through each state data value in the .csv file

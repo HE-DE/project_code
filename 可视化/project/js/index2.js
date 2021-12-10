@@ -46,7 +46,7 @@ function drawgeo() {
     var tra = par[1];
     var sca = par[2];
 
-    d3.json("../geo_pro_json/" + proname).then(function (data) {
+    d3.json("../lib/geo_pro_json/" + proname).then(function (data) {
         //读取地图数据
         console.log(data);
         var projection = d3

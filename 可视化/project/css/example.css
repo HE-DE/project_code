@@ -61,7 +61,7 @@ li{
 .e1 .e1-1{
 	position: relative;
 	width: 100%;
-	background-image:url(../img/p4-3.jpg);
+	background-image:url(../lib/img/p4-3.jpg);
 	background-repeat: no-repeat;
     background-size: cover;
     background-attachment: scroll;
@@ -110,7 +110,7 @@ li{
 .e1 .e1-2{
 	position: relative;
 	width: 100%;
-	background-image:url(../img/p4-1.jpg);
+	background-image:url(../lib/img/p4-1.jpg);
 	background-repeat: no-repeat;
     background-size: cover;
     background-attachment: scroll;

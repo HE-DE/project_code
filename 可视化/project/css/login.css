@@ -1,4 +1,4 @@
-ahtml, body, div, span, applet, object, iframe,
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -18,7 +18,7 @@ time, mark, audio, video {
 html,body{
 	font-family: "微软雅黑";
 	background-color: #383838;
-/*	height: 100%;
+	/*height: 100%;
 	overflow: hidden;*/
 	position: relative;
 }
@@ -28,6 +28,7 @@ body{
 }
 @media only screen and (min-width:993px ) {
 	.close {display: block;}
+	
 }
 @media only screen and (max-width:992px ) {
 	.close {display: none;}
@@ -55,12 +56,11 @@ nav {
 	width: 30px;
 	height: 30px;
 	display: inline-block;
-	background-image: url(../img/close1.png);
+	background-image: url(../lib/img/close1.png);
 }
 .close i:hover{
-	background-image: url(../img/close2.png);
+	background-image: url(../lib/img/close2.png);
 }
-
 
 .c2{
 	margin-top: 0;
@@ -93,26 +93,19 @@ nav {
   outline: 0;
 }
 .c3 label{
-	color: #AFAFAF;
+	color: #CCCCCC;
 	font-size: 15px;
 	cursor: pointer;
-}
-.c3 .checkbox{
-	border-top:1px solid #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;
-	line-height: 20px;
-	padding: 10px 0;
-	color:#808080 !important;
-}
-.c3 .checkbox a{
-	color: #FFFFFF;
-	text-decoration: none;
 }
 .c3 input[type="checkbox"]{
 	width: 16px;
 	height: 16px;
 	cursor: pointer;
-	margin-top:3px;
+	margin-top: 10px;
+}
+.c3 .c3-1{
+	border-top: 1px solid #e4e4e4;
+	padding-top: 10px;
 }
 .c3 .c3-1 .btn{
 	width: 100%;
@@ -147,7 +140,7 @@ nav {
 	height: 24px;
 	width: 24px;
 	display: inline-block;
-	background-image:url(../img/social_icon_24x24.png);
+	background-image:url(../lib/img/social_icon_24x24.png);
 }
 .c3 .c3-2-1 .s1{
 	background-position: -48px -48px;
@@ -161,14 +154,8 @@ nav {
 .c3 .c3-2-1 .s4{
 	background-position:  -96px -48px;
 }
-.c3 .pp{
-	display: inline-block;
-	color: #FFFFFF;
-	font-size: 12px;
-	border: 1px solid #FFFFFF;
-	border-radius: 3px;
-	transition: all .2s linear;
-	padding: 0 7px;
-	line-height: 24px;
-	margin-top: 10px;
+.c3 .c3-3 a{
+	text-decoration: none;
+	color: #999;
+	font-size: 15px;
 }

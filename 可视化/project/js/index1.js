@@ -8,25 +8,28 @@ var day = "01";
 console.log(ymd);
 var color = d3
     .scaleLinear() //AQI颜色比例尺
-    .domain([4,3,2,1,0])
+    .domain([0, 50, 100, 150, 200, 300, 501])
     .range([
-        "#ec8508",
-        "#a3f558",
-        "#59fcb8",
-        "#2a4be7",
+        "#fef0d9",
+        "#fdd49e",
+        "#fdbb84",
+        "#fc8d59",
+        "#ef6548",
         "#d7301f",
+        "#990000",
     ]);
 
 function drawchinageo() {
-    var path_file_data ="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/cluster/" +
+    var path_file_data =
+        "https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/country/" +
         year +
         month +
-        "/" +
+        "/CN-Reanalysis-daily-" +
         year +
         month +
         day +
         "00.csv";
-    d3.json("../china.json").then(function (data) {
+    d3.json("../lib/data/china.json").then(function (data) {
         //读取地图数据
         var projection = d3
             .geoMercator() //投影
@@ -90,11 +93,84 @@ function drawchinageo() {
             location
                 .append("circle")
                 .attr("transform", `rotate(${8}) translate(0,0)`)
-                .attr("r", 5);
+                .attr("r", 2);
             var rect = d3
                 .selectAll(".location")
                 .select("circle")
-                .attr("fill", (d) => color(d["cluster"]));
+                .attr("fill", (d) => color(d["AQI"]));
+            var valuetoshow = [0, 50, 100, 150, 200, 300, 501];
+            svg
+                .selectAll("#g")
+                .append("rect")
+                .attr("class", "legend")
+                .attr("x", 570)
+                .attr("y", 200)
+                .attr("width", 25)
+                .attr("height", 15)
+                .attr("fill", "#fef0d9");
+            // svg
+            //     .selectAll("#g")
+            //     .append("line")
+            //     .attr("class", "legend")
+            //     .attr("x1", 10)
+            //     .attr("y1", 370)
+            //     .attr("x2", 10)
+            //     .attr("y2", 390)
+            //     .attr("stroke", "black")
+            //     .attr("stroke-width", "2px");
+            svg
+                .selectAll("#g")
+                .append("text")
+                .attr("class", "legend")
+                .attr("y", 210)
+                .attr("x", 600)
+                .attr("font-size", 10)
+                .text(">0");
+            svg
+                .selectAll("#g")
+                .data(valuetoshow)
+                .enter()
+                .append("rect")
+                .attr("class", "legend")
+                .attr("y", function (d, i) {
+                    return 200 + i * 25;
+                })
+                .attr("x", 570)
+                .attr("width", 25)
+                .attr("height", 15)
+                .attr("fill", (d) => color(d));
+            console.log(valuetoshow);
+            // svg
+            //     .selectAll("#g")
+            //     .data(valuetoshow)
+            //     .enter()
+            //     .append("line")
+            //     .attr("class", "legend")
+            //     .attr("x1", function (d, i) {
+            //         return 10 + i * 25;
+            //     })
+            //     .attr("y1", 390)
+            //     .attr("x2", function (d, i) {
+            //         return 10 + i * 25;
+            //     })
+            //     .attr("y2", 370)
+            //     .attr("stroke", "black")
+            //     .attr("stroke-width", "2px");
+            svg
+                .selectAll("#g")
+                .data(valuetoshow)
+                .enter()
+                .append("text")
+                .attr("class", "legend")
+                .attr("y", function (d, i) {
+                    return 210 + i * 25;
+                })
+                .attr("x", 600)
+                .attr("font-size", 10)
+                .text(function (d) {
+                    d=">"+d;
+                    return d;
+                });
             svg
                 .select("#g")
                 .selectAll("path")
@@ -105,6 +181,30 @@ function drawchinageo() {
                 .style("fill", "White")
                 .style("fill-opacity", "0.0")
                 .attr("d", geopath);
+
+            // var texts = svg
+            //     .selectAll(".texts")
+            //     .data(data.features)
+            //     .enter()
+            //     .append("text")
+            //     .attr("class", "texts")
+            //     .text(function (d) {
+            //         return d.properties.name;
+            //     })
+            //     .attr("transform", function (d) {
+            //         var centroid = geopath.centroid(d),
+            //             x = centroid[0],
+            //             y = centroid[1];
+            //         return "translate(" + x + ", " + y + ")";
+            //     })
+            //     .attr("fill", "rgba(170,170,170,0)")
+            //     .attr("font-size", "5px")
+            //     .on("click", function (d, data) {
+            //         window.localStorage.name = data.properties.name;
+            //         window.localStorage.year = year;
+            //         window.localStorage.mon = month;
+            //         window.localStorage.day = day;
+            //     })
             svg.call(
                 d3
                     .zoom()

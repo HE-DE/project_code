@@ -1,7 +1,7 @@
 /*模板页面*/
 /*图片数据*/
 $(function(){
-			$.getJSON("data/templet.json",function(data){
+			$.getJSON("../lib/data/templet.json",function(data){
 				var str="";
 				$.each(data, function(infoIndex, Info) {
 					str += '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><p>' + Info.ID 
@@ -55,7 +55,7 @@ $(function(){
 	
 })
 $(function(){
-			$.getJSON("data/exanple.json",function(data){
+			$.getJSON("../lib/data/exanple.json",function(data){
 				var str="";
 				$.each(data, function(infoIndex, Info) {
 					str += '<div class="e2-2-2-anli col-lg-6 col-md-6 col-sm-6 col-xs-12"><div class="e2-2-2-img">' +
