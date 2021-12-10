@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>具体省份</title>
+    <script src="../js/d3.min.js"></script>
+    <script src="../js/d3-v6-tip.js"></script>
+    <link rel="stylesheet" href="../css/d3-tip.min.css"/>
+    <link rel="stylesheet" href="../css/geo.css"/>
+    <link rel="stylesheet" href="../css/cind.css"/>
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">-->
+    <style>
+        *{
+            font-family: 微软雅黑;
+        }
+        body {
+            max-width: 1920px;
+            /*background: url(../papyrus.png) no-repeat center center;*/
+            /*background-size: cover;*/
+            /*background-attachment: fixed;*/
+            background-color: rgba(204, 204, 204, 0.03);
+        }
+
+        .radarChart {
+            margin: 30px auto;
+            width: 600px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+
+        .webs polygon,
+        .lines line {
+            fill: white;
+            fill-opacity: 0.5;
+            stroke: gray;
+            stroke-dasharray: 10 5;
+        }
+
+        .webs polygon:nth-child(odd) {
+            fill: lightgray;
+        }
+
+        .areas polygon {
+            fill-opacity: 0.5;
+            stroke-width: 3;
+        }
+
+        .areas circle {
+            fill: white;
+            stroke-width: 3;
+        }
+
+        .texts text {
+            text-anchor: middle;
+        }
+    </style>
+</head>
+<body>
+<select name="myselect" id="myselect" onchange="GetVal(this)">
+    <option value="ScatterChart">ScatterChart</option>
+    <option value="BarChart">BarChart</option>
+    <option value="RadarChart">RadarChart</option>
+<!--    <option value="Time_spiral_graph">Time spiral graph</option>-->
+</select>
+<div>
+    横轴X
+    <select name="X" id="X" onchange="GetVal1(this)">
+        <option value="PM2.5(微克每立方米)">PM2.5(微克每立方米)</option>
+        <option value="PM10(微克每立方米)">PM10(微克每立方米)</option>
+        <option value="SO2(微克每立方米)">SO2(微克每立方米)</option>
+        <option value="NO2(微克每立方米)">NO2(微克每立方米)</option>
+        <option value="CO(毫克每立方米)">CO(毫克每立方米)</option>
+        <option value="O3(微克每立方米)">O3(微克每立方米)</option>
+        <option value="TEMP(K)">TEMP(K)</option>
+        <option value="RH(%)">RH(%)</option>
+        <option value="PSFC(Pa)">PSFC(Pa)</option>
+    </select>
+    纵轴Y
+    <select name="Y" id="Y" onchange="GetVal2(this)">
+        <option value="PM2.5(微克每立方米)">PM2.5(微克每立方米)</option>
+        <option value="PM10(微克每立方米)">PM10(微克每立方米)</option>
+        <option value="SO2(微克每立方米)">SO2(微克每立方米)</option>
+        <option value="NO2(微克每立方米)">NO2(微克每立方米)</option>
+        <option value="CO(毫克每立方米)">CO(毫克每立方米)</option>
+        <option value="O3(微克每立方米)">O3(微克每立方米)</option>
+        <option value="TEMP(K)">TEMP(K)</option>
+        <option value="RH(%)">RH(%)</option>
+        <option value="PSFC(Pa)">PSFC(Pa)</option>
+    </select>
+</div>
+<div id="scatterchart"></div>
+<script src="../js/min_chart.js"></script>
+<script src="../js/get_proname.js"></script>
+<script>
+    var ymd="2013-01-01";
+    var pname="山东省";
+    var poluname_x=document.getElementById("X").value;
+    var poluname_y=document.getElementById("Y").value;
+    scatterchart(ymd,pname,poluname_x,poluname_y);
+    function GetVal(obj) {
+        var index = obj.selectedIndex;
+        var txt = obj.options[index].value;
+        if (txt === 'RadarChart') {
+            window.location.replace("./radarchart.html")
+        } else if (txt === 'BarChart') {
+            window.location.replace("./min_pic.html")
+        }else if(txt==='ScatterChart'){
+            window.location.replace("./min_pic.html")
+        }
+    }
+    function GetVal1(obj) {
+        var index = obj.selectedIndex;
+        var txt = obj.options[index].value;
+        poluname_x=txt;
+        scatterchart(ymd,pname,poluname_x,poluname_y);
+    }
+    function GetVal2(obj) {
+        var index = obj.selectedIndex;
+        var txt = obj.options[index].value;
+        poluname_y=txt;
+        scatterchart(ymd,pname,poluname_x,poluname_y);
+    }
+    window.addEventListener("storage",event=>{
+        if (event.key === 'ymd'){
+            ymd=event.newValue;
+            console.log(ymd);
+            scatterchart(ymd,pname,poluname_x,poluname_y)
+        }else if(event.key==='name'){
+            pname=event.newValue;
+            console.log(pname);
+            scatterchart(ymd,pname,poluname_x,poluname_y)
+        }
+    })
+</script>
+</body>
+</html>

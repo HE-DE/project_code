@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <script src="../js/d3.v5.min.js"></script>
+    <link rel="stylesheet" href="../css/cind.css" />
+    <!-- 引入 echarts.js -->
+    <script src="lib/echarts.min.js"></script>
+    <script src="lib/echarts-gl.min.js"></script>
+    <script src="lib/bmap.min.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=wlmlTWodLfDSxDe5KS6kijzY86fk2e69"></script>
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">-->
+    <style>
+        *{
+            font-family: 微软雅黑;
+            /*overflow: hidden;*/
+        }
+        body {
+        max-width: 1920px;
+        /*background: url(../papyrus.png) no-repeat center center;*/
+        /*background-size: cover;*/
+        /*background-attachment: fixed;*/
+        background-color: rgba(204, 204, 204, 0.18);
+      }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div>
+            <label for="date">Choose date:</label>
+            <input type="date" id="date" name="date" value="2013-01-01" min="2013-01-01" max="2018-12-31">
+        </div>
+    </form>
+    <button class="button button5" onclick="hotmap()">全国空气质量热力图</button>
+    <button class="button button4">全国风场图</button>
+    <button class="button button5" onclick="cluster()">模式聚类图</button>
+    <!-- 为 ECharts 准备一个具备大小的 Dom -->
+    <div id="main" style="width: 734px;height: 410px;"></div>
+    <script src="./jj.js" type="module">
+    </script>
+    <script src="../js/hotmap.js"></script>
+</body>
+
+</html>
