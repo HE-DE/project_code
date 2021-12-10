@@ -103,71 +103,72 @@ function drawchinageo() {
                 .selectAll("#g")
                 .append("rect")
                 .attr("class", "legend")
-                .attr("x", 10)
-                .attr("y", 370)
+                .attr("x", 570)
+                .attr("y", 200)
                 .attr("width", 25)
                 .attr("height", 15)
                 .attr("fill", "#fef0d9");
-            svg
-                .selectAll("#g")
-                .append("line")
-                .attr("class", "legend")
-                .attr("x1", 10)
-                .attr("y1", 370)
-                .attr("x2", 10)
-                .attr("y2", 390)
-                .attr("stroke", "black")
-                .attr("stroke-width", "2px");
+            // svg
+            //     .selectAll("#g")
+            //     .append("line")
+            //     .attr("class", "legend")
+            //     .attr("x1", 10)
+            //     .attr("y1", 370)
+            //     .attr("x2", 10)
+            //     .attr("y2", 390)
+            //     .attr("stroke", "black")
+            //     .attr("stroke-width", "2px");
             svg
                 .selectAll("#g")
                 .append("text")
                 .attr("class", "legend")
-                .attr("x", 5)
-                .attr("y", 400)
+                .attr("y", 210)
+                .attr("x", 600)
                 .attr("font-size", 10)
-                .text("0");
+                .text(">0");
             svg
                 .selectAll("#g")
                 .data(valuetoshow)
                 .enter()
                 .append("rect")
                 .attr("class", "legend")
-                .attr("x", function (d, i) {
-                    return 10 + i * 25;
+                .attr("y", function (d, i) {
+                    return 200 + i * 25;
                 })
-                .attr("y", 370)
+                .attr("x", 570)
                 .attr("width", 25)
                 .attr("height", 15)
                 .attr("fill", (d) => color(d));
             console.log(valuetoshow);
-            svg
-                .selectAll("#g")
-                .data(valuetoshow)
-                .enter()
-                .append("line")
-                .attr("class", "legend")
-                .attr("x1", function (d, i) {
-                    return 10 + i * 25;
-                })
-                .attr("y1", 390)
-                .attr("x2", function (d, i) {
-                    return 10 + i * 25;
-                })
-                .attr("y2", 370)
-                .attr("stroke", "black")
-                .attr("stroke-width", "2px");
+            // svg
+            //     .selectAll("#g")
+            //     .data(valuetoshow)
+            //     .enter()
+            //     .append("line")
+            //     .attr("class", "legend")
+            //     .attr("x1", function (d, i) {
+            //         return 10 + i * 25;
+            //     })
+            //     .attr("y1", 390)
+            //     .attr("x2", function (d, i) {
+            //         return 10 + i * 25;
+            //     })
+            //     .attr("y2", 370)
+            //     .attr("stroke", "black")
+            //     .attr("stroke-width", "2px");
             svg
                 .selectAll("#g")
                 .data(valuetoshow)
                 .enter()
                 .append("text")
                 .attr("class", "legend")
-                .attr("x", function (d, i) {
-                    return 5 + i * 25;
+                .attr("y", function (d, i) {
+                    return 210 + i * 25;
                 })
-                .attr("y", 400)
+                .attr("x", 600)
                 .attr("font-size", 10)
                 .text(function (d) {
+                    d=">"+d;
                     return d;
                 });
             svg
