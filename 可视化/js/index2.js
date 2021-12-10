@@ -73,7 +73,7 @@ function drawgeo() {
             .append("path")
             .attr("class", "storke")
             .style("fill", "White")
-            .style("fill-opacity", "1.0")
+            .style("fill-opacity", "0.3")
             .attr("d", geopath);
         svg
             .select("#g")

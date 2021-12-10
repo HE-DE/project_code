@@ -450,7 +450,7 @@ li{
 	bottom: 0;
 	right: 0;
 	/*background-color: rgba(48,38,38,0);*/
-	background: url(https://static.runoob.com/images/demo/demo3.jpg) no-repeat center center;
+	background: linear-gradient(rgb(7, 24, 113), rgb(30, 50, 125), rgb(42, 75, 137), rgb(49, 101, 149), rgb(53, 127, 161));
 }
 .c .container{
 	overflow: hidden;

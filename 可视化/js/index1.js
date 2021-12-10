@@ -93,7 +93,7 @@ function drawchinageo() {
             location
                 .append("circle")
                 .attr("transform", `rotate(${8}) translate(0,0)`)
-                .attr("r", 5);
+                .attr("r", 2);
             var rect = d3
                 .selectAll(".location")
                 .select("circle")

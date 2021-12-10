@@ -148,7 +148,7 @@ function mouseclick3(event, d) {
                     .attr("class", "myArea")
                     .attr("fill", "#d7301f")
                     .attr("fill-opacity", 0.3)
-                    .attr("stroke", "black")
+                    .attr("stroke", "#d7301f")
                     .attr("stroke-width", 1)
                     .attr("d", areaGenerator);
 
