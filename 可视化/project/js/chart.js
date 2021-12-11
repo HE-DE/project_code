@@ -5,43 +5,43 @@ var fourth = "2016.csv";
 var fifth = "2017.csv";
 var sixth = "2018.csv";
 
-var width = 1000,
+var width = 1200,
   height = 1000,
   start = 0,
   end = 2.25,
   numSpirals = 2
-margin = { top: 50, bottom: 50, left: 50, right: 50 };
+margin = { top: 50, bottom: 50, left: 0, right: 0 };
 
 var theta = function (r) {
   return numSpirals * Math.PI * r;
 };
 
 // used to assign nodes color by group
-var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-var r = d3.min([width, height]) / 3;
+
+var r = d3.min([width, height]) / 2.2;
 
 var radius = d3.scaleLinear()
   .domain([start, end])
-  .range([160, r]);
+  .range([240, r]);
 //半径
 var projection = d3.geoMercator()
   .center([107, 31]) //地图中心位置,107是经度，31是纬度
-  .scale(300) //设置缩放量
-  .translate([400, 440]); // 设置平移量
+  .scale(460) //设置缩放量
+  .translate([500, 560]); // 设置平移量
 // Define path generator
 var path1 = d3.geoPath()               // path generator that will convert GeoJSON to SVG paths
   .projection(projection);  // tell path generator to use albersUsa projection
 
 var color1 = d3.scaleLinear()
-  .domain([0, 250])
-  .range(["rgb(69,173,168)", "rgb(217,91,67)"]);
+  .domain([0, 400])
+  .range(["#fef0d9", "#990000"]);
 
 //Create SVG element and append map to the SVG
 var svg = d3.select("#chart")
   .append("svg")
-  .attr("width", width + margin.right + margin.left-300)
-  .attr("height", height + margin.left + margin.right-300)
+  .attr("width", width + margin.right + margin.left)
+  .attr("height", height + margin.left + margin.right)
   .append("g");
 
 // var svg = d3.select("#chart").append("svg")
@@ -61,7 +61,7 @@ var path = svg.append("path")
   .datum(points)
   .attr("id", "spiral")
   .attr("d", spiral)
-  .attr("transform", "translate(410,400)")
+  .attr("transform", "translate(510,500)")
   .style("fill", "none")
   .style("stroke", "steelblue")
 
@@ -73,15 +73,18 @@ function update(tmp) {
   d3.json("../lib/data/chart_data/china.geo.json", function (json) {
     // Loop through each state data value in the .csv file
     d3.csv("../lib/data/chart_data/" + tmp, function (data) {
+
       var someData = [];
       var pro = 1;
       // L oop through each state data value in the .csv file
       for (var i = 0; i < data.length; i++) {
         // Grab State Name
-        var dataState = data[i].PROVINCE;
+
 
         // Grab data value 
         var dataTime = data[i].Time;
+        var dataState = data[i].Province;
+        console.log(data[i].Province)
 
         // Find the corresponding state inside the GeoJSON
         for (var j = 0; j < json.features.length; j++) {
@@ -90,6 +93,7 @@ function update(tmp) {
           if (dataState == jsonState) {
             // Copy the data value into the JSON
             json.features[j].properties.res = data[i].AQI;
+            data[i].Province=jsonState;
             //console.log(data[i].AQI);
             // Stop looking through the JSON
             break;
@@ -107,25 +111,25 @@ function update(tmp) {
         .attr("d", path1)
         .on("mouseover", function (d, i) {
           d3.select(this)
-            .attr("opacity", "0.7");
+            .attr("opacity", "0.9");
         })
         .on("mouseout", function (d, i) {
           d3.select(this)
             .transition()
-            .duration(500)
+            .duration(300)
             .attr("opacity", "1");
         })
         .on("click", function (n, d) {
           pro = n.properties.name;
-          console.log(pro);
           someData = [];
           for (var i = 0; i < data.length; i++) {
-            if (data[i].PROVINCE == pro) {
+            if (data[i].Province == pro) {
               var currentdate = new Date(data[i].Time);
 
               someData.push({
                 date: currentdate,
                 value: data[i].AQI,
+                Pro:data[i].Province,
                 group: currentdate.getMonth()
               });
               // console.log(data[i].AQI)
@@ -140,7 +144,7 @@ function update(tmp) {
         .style("fill", function (d) {
 
           // Get data value
-          var value = d.properties.res;
+          let value = d.properties.res;
           if (value) {
             //If value exists…
             return color1(value);
@@ -154,12 +158,13 @@ function update(tmp) {
       for (var i = 0; i < data.length; i++) {
 
         if (pro == 1) { pro = "安徽" }
-        if (data[i].PROVINCE == pro) {
+        if (data[i].Province == pro) {
           var currentdate = new Date(data[i].Time);
 
           someData.push({
             date: currentdate,
             value: data[i].AQI,
+            Pro:data[i].Province,
             group: currentdate.getMonth()
           });
           // console.log(data[i].AQI)
@@ -182,7 +187,7 @@ function update(tmp) {
         // yScale for the bar height
         var yScale = d3.scaleLinear()
           .domain([small, big])
-          .range([10, ((r - 170) / numSpirals) - 8]);
+          .range([10, ((r - 260) / numSpirals) - 10]);
 
         console.log((r - 170) / numSpirals);
         console.log(big);
@@ -195,7 +200,7 @@ function update(tmp) {
           .data(tem)
           .enter()
           .append("rect")
-          .attr("transform", "translate(410,400)")
+          .attr("transform", "translate(510,500)")
           .attr("x", function (d, i) {
             var linePer = timeScale(d.date),
               posOnLine = path.node().getPointAtLength(linePer),
@@ -218,10 +223,10 @@ function update(tmp) {
           .attr("height", function (d) {
             return yScale(d.value);
           })
-          .style("fill", function (d) { return color(d.group); })
+          .style("fill", function (d) { return color1(d.value); })
           .style("stroke", "none")
           .attr("transform", function (d) {
-            return "translate(410,400)rotate(" + d.a + "," + d.x + "," + d.y + ")"; // rotate the bar
+            return "translate(510,500)rotate(" + d.a + "," + d.x + "," + d.y + ")"; // rotate the bar
           });
 
 
@@ -235,9 +240,9 @@ function update(tmp) {
           .data(tem)
           .enter()
           .append("text")
-          .attr("dy", 10)
+          .attr("dy", 15)
           .style("text-anchor", "start")
-          .style("font", "10px arial")
+          .style("font", "15px arial")
           .append("textPath")
           // only add for the first of each month
           .filter(function (d) {
@@ -253,7 +258,7 @@ function update(tmp) {
           })
           // place text along spiral
           .attr("xlink:href", "#spiral")
-          .style("fill", "grey")
+          .style("fill", "white")
           .attr("startOffset", function (d) {
             return ((d.linePer / spiralLength) * 100) + "%";
           })
@@ -267,15 +272,17 @@ function update(tmp) {
           .attr('class', 'date');
         tooltip.append('div')
           .attr('class', 'value');
+        tooltip.append('div')
+            .attr('class', 'Pro');
 
         svg.selectAll("rect")
           .on('mouseover', function (d) {
-
-            tooltip.select('.date').html("Date: <b>" + d.date.toDateString() + "</b>");
-            tooltip.select('.value').html("Value: <b>" + Math.round(d.value * 100) / 100 + "<b>");
+            tooltip.select('.Pro').html(" <b style=\'font-size:15px;color:white;\'>"+"Province:" + d.Pro + "</b>")
+            tooltip.select('.date').html(" <b style=\'font-size:15px;color:white;\'>"+"Date:" + d.date.toDateString() + "</b>")
+            tooltip.select('.value').html(" <b style=\'font-size:15px;color:white;\'>" + "Value:"+Math.round(d.value * 100) / 100 + "<b>")
 
             d3.select(this)
-              .style("fill", "#FFFFFF")
+              .style("opacity", 0.4)
               .style("stroke", "#000000")
               .style("stroke-width", "2px");
 
@@ -284,12 +291,14 @@ function update(tmp) {
 
           })
           .on('mousemove', function (d) {
-            tooltip.style('top', (d3.event.layerY + 10) + 'px')
-              .style('left', (d3.event.layerX - 25) + 'px');
+            tooltip.style('top', '360px')
+              .style('left', '550px')
+                .style("font", "15px arial")
+                .style("fill", "white");
           })
           .on('mouseout', function (d) {
             d3.selectAll("rect")
-              .style("fill", function (d) { return color(d.group); })
+              .style("opacity", 1 )
               .style("stroke", "none")
 
             tooltip.style('display', 'none');

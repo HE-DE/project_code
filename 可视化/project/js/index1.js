@@ -124,6 +124,7 @@ function drawchinageo() {
                 .attr("class", "legend")
                 .attr("y", 210)
                 .attr("x", 600)
+                .attr("fill","#aaa")
                 .attr("font-size", 10)
                 .text(">0");
             svg
@@ -167,6 +168,7 @@ function drawchinageo() {
                 })
                 .attr("x", 600)
                 .attr("font-size", 10)
+                .attr("fill","#aaa")
                 .text(function (d) {
                     d=">"+d;
                     return d;

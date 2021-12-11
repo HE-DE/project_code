@@ -56,6 +56,17 @@
         .texts text {
             text-anchor: middle;
         }
+        .axisRed line{
+            stroke: #aaa;
+        }
+
+        .axisRed path{
+            stroke: #aaa;
+        }
+
+        .axisRed text{
+            fill: #aaa;
+        }
     </style>
 </head>
 <body>
@@ -66,7 +77,7 @@
 <!--    <option value="Time_spiral_graph">Time spiral graph</option>-->
 </select>
 <div>
-    横轴X
+    <b style="color: #aaa">横轴X</b>
     <select name="X" id="X" onchange="GetVal1(this)">
         <option value="PM2.5(微克每立方米)">PM2.5(微克每立方米)</option>
         <option value="PM10(微克每立方米)">PM10(微克每立方米)</option>
@@ -78,7 +89,7 @@
         <option value="RH(%)">RH(%)</option>
         <option value="PSFC(Pa)">PSFC(Pa)</option>
     </select>
-    纵轴Y
+    <b style="color: #aaa">纵轴Y</b>
     <select name="Y" id="Y" onchange="GetVal2(this)">
         <option value="PM2.5(微克每立方米)">PM2.5(微克每立方米)</option>
         <option value="PM10(微克每立方米)">PM10(微克每立方米)</option>

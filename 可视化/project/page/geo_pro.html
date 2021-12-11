@@ -25,12 +25,23 @@
         /*background-attachment: fixed;*/
         background-color: rgba(204, 204, 204, 0.1);
       }
+      .axisRed line{
+        stroke: #aaa;
+      }
+
+      .axisRed path{
+        stroke: #aaa;
+      }
+
+      .axisRed text{
+        fill: #aaa;
+      }
     </style>
   </head>
   <body>
     <form>
       <div>
-        <label for="party">Choose date:</label>
+        <label id="p" style="color: #aaa">Choose date:</label>
         <input
           type="date"
           id="date"

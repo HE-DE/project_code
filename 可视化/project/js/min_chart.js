@@ -93,6 +93,7 @@ function min_barchart(d, pollution = "PM2.5(μg/m3)") {
     svg1
         .append("g")
         .attr("transform", `translate(0,${height})`)
+        .attr("class","axisRed")
         .call(d3.axisBottom(x))
         .selectAll("text")
         .attr("transform", "translate(-10,0)rotate(-45)")
@@ -106,7 +107,7 @@ function min_barchart(d, pollution = "PM2.5(μg/m3)") {
     console.log(tt);
     tt = tt + 5;
     const y = d3.scaleLinear().domain([0, tt]).range([height, 0]);
-    svg1.append("g").call(d3.axisLeft(y));
+    svg1.append("g").attr("class","axisRed").call(d3.axisLeft(y));
     svg1
         .selectAll("mybar")
         .data(ddata)
@@ -115,13 +116,13 @@ function min_barchart(d, pollution = "PM2.5(μg/m3)") {
         .attr("width", x.bandwidth())
         .attr("fill", function (d) {
             if (d.group === major && d.group === goal) {
-                return "#d7301f";
+                return "#8C0410";
             } else if (d.group === major&& d.group !== goal) {
-                return "#fc8d59"
+                return "rgba(140,4,16,0.6)"
             } else if(d.group === goal){
-                return "#fdcc8a"
+                return "#4992F2"
             }else {
-                return "#fef0d9";
+                return "rgba(73,146,242,0.6)";
             }
         })
         .attr("height", (d) => height - y(0)) // always equal to 0
@@ -146,7 +147,7 @@ function min_barchart(d, pollution = "PM2.5(μg/m3)") {
 
 function getColor(idx) {
     var palette = [
-        '#fc8d59', '#b6a2de', '#5ab1ef', '#ffb980', '#d87a80',
+        'rgba(252,141,89,0.56)', '#b6a2de', '#5ab1ef', '#ffb980', '#d87a80',
         '#8d98b3', '#e5cf0d', '#97b552', '#95706d', '#dc69aa',
         '#07a2a4', '#9a7fd1', '#588dd5', '#f5994e', '#c05050',
         '#59678c', '#c9ab00', '#7eb00a', '#6f5553', '#c14089'
@@ -210,6 +211,8 @@ function min_radarchart(pdata,pollution="PM2.5(μg/m3)") {
         .data(polygons.webs)
         .enter()
         .append('polygon')
+        .attr("fill","#3E3C54")
+        .attr("opacity","0.4")
         .attr('points', function (d) {
             return d;
         });
@@ -328,7 +331,9 @@ function min_radarchart(pdata,pollution="PM2.5(μg/m3)") {
         .attr("font-size", 10)
         .attr("fill",function (d,i){
             if(data.fieldNames[i]===goal){
-                return "#e30f5f";
+                return "#ffffff";
+            }else{
+                return "#aaa";
             }
         })
         .text(function (d, i) {
@@ -435,7 +440,7 @@ function scatterchart(ymd,pname,poluname_x,poluname_y){
             .domain([0, 0])
             .range([ 0, width]);
         svg.append("g")
-            .attr("class", "myXaxis")
+            .attr("class", "axisRed")
             .attr("transform", `translate(0, ${height})`)
             .call(d3.axisBottom(x))
             .attr("opacity", "0")
@@ -443,6 +448,7 @@ function scatterchart(ymd,pname,poluname_x,poluname_y){
             .domain([0, max_y+10])
             .range([ height, 0]);
         svg.append("g")
+            .attr("class","axisRed")
             .call(d3.axisLeft(y));
         svg.append('g')
             .selectAll("dot")
@@ -451,10 +457,13 @@ function scatterchart(ymd,pname,poluname_x,poluname_y){
             .append("circle")
             .attr("cx", function (d) { return x(d.x); } )
             .attr("cy", function (d) { return y(d.y); } )
-            .attr("r", 1.5)
-            .style("fill", "#fc8d59")
+            .attr("r", 3)
+            .style("fill", "#3C76D5")
+            .style("opacity","0.8")
+            .style("stroke-width","1px")
+            .style("stroke","rgba(8,38,238,0.9)")
         x.domain([0, max_x+10])
-        svg.select(".myXaxis")
+        svg.select(".axisRed")
             .transition()
             .duration(2000)
             .attr("opacity", "1")

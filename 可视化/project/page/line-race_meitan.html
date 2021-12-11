@@ -37,7 +37,7 @@
 
         <script type="text/javascript">
 var dom = document.getElementById("container");
-var myChart = echarts.init(dom);
+var myChart = echarts.init(dom,'dark')
 var app = {};
 
 var option;
@@ -116,7 +116,7 @@ function run(_rawData) {
     });
   });
   option = {
-    animationDuration: 10000,
+    animationDuration: 5000,
     dataset: [
       {
         id: 'dataset_raw',

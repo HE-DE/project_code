@@ -44,18 +44,18 @@ function mouseclick3(event, d) {
                 return d;
             })
             .attr("transform", function (d, i) {
-                var x = i * 80;
+                var x = i * 86;
                 var y = margin.top - 100;
                 return "translate(" + x + ", " + y + ")";
             })
             .attr("fill", function (d) {
                 if (d === pollutant) {
-                    return "red";
+                    return "#ffffff";
                 } else {
-                    return "black";
+                    return "#aaa";
                 }
             })
-            .attr("font-size", "10px")
+            .attr("font-size", "11px")
             .on("click.1", mouseclick4)
             .on("click.2", function (event, d) {
                 window.localStorage.pollution = d;
@@ -103,6 +103,7 @@ function mouseclick3(event, d) {
                 xAxis = svg3
                     .append("g")
                     .attr("transform", `translate(0,  ${height + 5})`)
+                    .attr("class","axisRed")
                     .call(d3.axisBottom(x).ticks(5).tickSizeOuter(0));
 
                 // 设置Y轴
@@ -113,6 +114,7 @@ function mouseclick3(event, d) {
                 svg3
                     .append("g")
                     .attr("transform", "translate(-5,0)")
+                    .attr("class","axisRed")
                     .call(d3.axisLeft(y).tickSizeOuter(0));
                 const clip = svg3
                     .append("defs")
@@ -146,9 +148,10 @@ function mouseclick3(event, d) {
                     .append("path")
                     .datum(data)
                     .attr("class", "myArea")
-                    .attr("fill", "#d7301f")
-                    .attr("fill-opacity", 0.3)
-                    .attr("stroke", "#d7301f")
+                    .attr("fill", "#3C76D5")
+                    .attr("fill-opacity", 0.6)
+                    .attr("stroke", "#fff6f6")
+                    .attr("stroke-opacity","0.6")
                     .attr("stroke-width", 1)
                     .attr("d", areaGenerator);
 

@@ -80,6 +80,7 @@ function drawgeo() {
             .append("text")
             .attr("x", 0)
             .attr("y", 40)
+            .attr("fill","#aaa")
             .attr("font-size", 30)
             .text(pproname)
             .on("click", function () {

@@ -10,11 +10,11 @@ var color = d3
     .scaleLinear() //AQI颜色比例尺
     .domain([4,3,2,1,0])
     .range([
-        "#ec8508",
-        "#a3f558",
-        "#59fcb8",
-        "#2a4be7",
-        "#d7301f",
+        "#FD8686",
+        "#77E6F2",
+        "#004E84",
+        "#F23005",
+        "#009CE7",
     ]);
 
 function drawchinageo() {

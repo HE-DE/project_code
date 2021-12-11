@@ -44,41 +44,41 @@
 
 ### 首页
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211094957913.png" alt="image-20211211094957913" style="zoom:50%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212217704.png" alt="image-20211211212217704" style="zoom:50%;" />
 
 首页由时间螺旋图和导航栏构成。
 
 ### 主页
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095032142.png" alt="image-20211211095032142" style="zoom:50%;" />
+![image-20211211212251287](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212251287.png)
 
 主页有三个视图组成及悬浮窗口构成。 
 
 左上为第一视图（全国空气质量热力图，全国风场图，模式聚类图）；
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095105184.png" alt="image-20211211095105184" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212306309.png" alt="image-20211211212306309" style="zoom:25%;" />
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095124188.png" alt="image-20211211095124188" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212335884.png" alt="image-20211211212335884" style="zoom:25%;" />
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095141603.png" alt="image-20211211095141603" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212353767.png" alt="image-20211211212353767" style="zoom:25%;" />
 
 右侧为第二视图（各省AQI热力图，省会城市各污染物面积图）；
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095207009.png" alt="image-20211211095207009" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212412973.png" alt="image-20211211212412973" style="zoom:25%;" />
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095220469.png" alt="image-20211211095220469" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212425030.png" alt="image-20211211212425030" style="zoom:25%;" />
 
 左下为第三视图（污染物条形图，雷达图，各污染物散点图）；
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095258295.png" alt="image-20211211095258295" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212439164.png" alt="image-20211211212439164" style="zoom:25%;" />
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095310834.png" alt="image-20211211095310834" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212452013.png" alt="image-20211211212452013" style="zoom:25%;" />
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095326922.png" alt="image-20211211095326922" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212514856.png" alt="image-20211211212514856" style="zoom:25%;" />
 
 右侧为悬浮窗，进行跳转。
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095354810.png" alt="image-20211211095354810" style="zoom:50%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212528570.png" alt="image-20211211212528570" style="zoom:50%;" />
 
 ### 归因分析
 
@@ -86,15 +86,19 @@
 
 各地区煤炭消耗量：
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095446928.png" alt="image-20211211095446928" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212600646.png" alt="image-20211211212600646" style="zoom:25%;" />
 
 各地区石油焦炭工业投资：
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095514821.png" alt="image-20211211095514821" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212615589.png" alt="image-20211211212615589" style="zoom:25%;" />
 
 各地区汽油消费量：
 
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211095558283.png" alt="image-20211211095558283" style="zoom:25%;" />
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212629863.png" alt="image-20211211212629863" style="zoom:25%;" />
+
+### 污染预测
+
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211212720512.png" alt="image-20211211212720512" style="zoom:25%;" />
 
 ### READ ME
 
@@ -131,3 +135,7 @@
 ### 归因分析
 
 通过按键点击和鼠标移动进行交互
+
+### 污染预测
+
+通过按键进行交互

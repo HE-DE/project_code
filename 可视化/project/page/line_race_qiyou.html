@@ -37,7 +37,8 @@
 
         <script type="text/javascript">
 var dom = document.getElementById("container");
-var myChart = echarts.init(dom);
+var myChart = echarts.init(dom,'dark');
+
 var app = {};
 
 var option;
@@ -116,7 +117,7 @@ function run(_rawData) {
     });
   });
   option = {
-    animationDuration: 10000,
+    animationDuration: 5000,
     dataset: [
       {
         id: 'dataset_raw',
@@ -125,7 +126,8 @@ function run(_rawData) {
       ...datasetWithFilters
     ],
     title: {
-      text: '各个地区汽油消费量 '
+      text: '各个地区汽油消费量 ',
+        color:"#f3f3f3"
     },
     tooltip: {
       order: 'valueDesc',
@@ -133,7 +135,8 @@ function run(_rawData) {
     },
     xAxis: {
       type: 'category',
-      nameLocation: 'middle'
+      nameLocation: 'middle',
+        color:"#f3f3f3"
     },
     yAxis: {
       name: 'Income'
