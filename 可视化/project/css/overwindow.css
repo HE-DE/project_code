@@ -20,16 +20,16 @@ html,body{
 .NMH-g-navicon .Jnmh-btnlogo{
     position: absolute;
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     top: 50%;
     right: 0;
     margin-top: -50px;
     border: 0;
-    background: url(../lib/img/900px-Octicons-mark-github.svg.png) no-repeat center center;
+    background: url(../lib/img/white-circle-emoji-clipart-md.png) no-repeat center center;
     background-size: 95% 95%;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 10px 0px;
+    box-shadow: rgba(0, 0, 0, 0.42) 0px 6px 10px 0px;
     outline: none;
     border-radius: 50%;
     z-index: 1;
