@@ -78,7 +78,7 @@ header{
 }
 #daohangtiao ul>li a{
 	color: #ededed;
-	font-size: 15px;
+	font-size: 20px;
 	line-height: 32px;
 }
 #daohangtiao ul>li a:hover{
@@ -146,7 +146,7 @@ header{
 .wd2 a,.gy2 a{
 	text-decoration: none;	
 	color: #696969 !important;
-	font-size: 12px !important;
+	font-size: 16px !important;
 	transition: all 1s ease; 
 }
 .wd2 a:hover,.gy2 a:hover{

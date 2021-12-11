@@ -183,7 +183,7 @@ li{
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
   width: 30px;
-  font-size: 16px;
+  font-size: 30px;
 }
 .c7 .carousel .carousel-control:after {
   border-radius: 50%;
@@ -293,14 +293,14 @@ li{
 }
 .p1,.p2{
 	font-family: 微软雅黑;
-	font-size: 18px;
+	font-size: 30px;
 	color: #696969;
 	padding-top: 10px;
 }
 
 .c8 .btn{
 	font-family: 微软雅黑;
-	font-size: 16px;
+	font-size: 30px;
     background-color: rgb(97, 176, 255);
     color: #FFFFFF;
     padding: 8px 50px; 
@@ -383,7 +383,7 @@ li{
   bottom: 0;
   left: 0;
   width:35px;
-  font-size: 14px;
+  font-size: 30px;
   color: #fff;
   text-align: center;
   text-shadow:none;
@@ -468,7 +468,7 @@ li{
 }
 .cover1 .co2{
 	font-family:微軟正黑體; 
-	font-size: 22px;
+	font-size: 30px;
 	line-height: 35px;
 	padding-bottom: 40px;
 	color: #c3c3c3;
@@ -478,7 +478,7 @@ li{
 	padding:10px 60px;
 	border:1px solid #FFFFFF;
 	font-family: 微軟正黑體;
-	font-size:22px;
+	font-size:30px;
 	line-height:40px ;
 	color: #FFFFFF;
 	text-decoration: none;
@@ -516,7 +516,7 @@ li{
 	font-weight: 700;
 }
 .cover2 .co2-2{
-	font-size: 20px;
+	font-size: 30px;
 	line-height: 35px;
 	color: #FFFFFF;
 	margin-top: 10px;
@@ -526,7 +526,7 @@ li{
 	display:inline-block;
 	padding:10px 60px;
 	font-family: 微軟正黑體;
-	font-size:22px;
+	font-size:30px;
 	line-height:40px ;
 	color: #FFFFFF;
 	background-color: #0088c2;
