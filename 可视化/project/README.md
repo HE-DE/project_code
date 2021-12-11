@@ -106,7 +106,7 @@
 
 小组成员信息
 
-
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211211105203956.png" alt="image-20211211105203956" style="zoom:50%;" />
 
 
 
