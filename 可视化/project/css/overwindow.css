@@ -1,0 +1,114 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;padding: 0;
+}
+
+/*导航图标*/
+.NMH-g-navicon{
+    position: fixed;
+    top: 40%;
+    right: 020px;
+    width: 100px;
+    height: 100px;
+}
+.NMH-g-navicon.Jnmh-onleft{
+    right: auto;
+    left: 020px;
+}
+/*导航图标logo按钮*/
+.NMH-g-navicon .Jnmh-btnlogo{
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    right: 0;
+    margin-top: -50px;
+    border: 0;
+    background: url(../lib/img/900px-Octicons-mark-github.svg.png) no-repeat center center;
+    background-size: 95% 95%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 10px 0px;
+    outline: none;
+    border-radius: 50%;
+    z-index: 1;
+}
+.NMH-g-navicon .Jnmh-btnlogohover{
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    right: 0;
+    margin: 0;padding: 0;
+    margin-top: -50px;
+    border: 0;
+    overflow: hidden;
+    /*background-color: red;*/
+}
+
+/*导航图标logo按钮-鼠标经过*/
+.NMH-g-navicon.Jnmh-open .Jnmh-btnlogohover{
+    margin-top: -150px;
+    width: 200px;
+    height: 300px;
+    border-radius: 150px 0 0 150px;
+}
+.NMH-g-navicon.Jnmh-onleft .Jnmh-btnlogohover{
+    left: 0;
+    right: auto;
+    border-radius: 0 150px 150px 0;
+}
+/*导航图标菜单子容器*/
+.NMH-g-navicon .Jnmh-m-submenu{
+    position: absolute;
+    background-color: transparent;
+    list-style: none;
+    top: -020px;
+    bottom: -020px;
+    left: -020px;
+    right: -020px;
+    margin: 0;
+    padding: 0;
+}
+
+.NMH-g-navicon .Jnmh-m-submenu .Jnmh-subli{
+    position: absolute;
+    width: 100%;height: 100%;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transition: all 0.8s ease-in-out;
+}
+
+.Jnmh-m-submenu .Jnmh-subdl{
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+    line-height: 1px;
+    margin-left: 0;
+    background: rgba(255, 255, 255, 0.42);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: none;
+    transition: all 0.8s ease-in-out, color 0.1s, background 0.1s;
+}
+/*导航图标-展开菜单时*/
+.NMH-g-navicon.Jnmh-open .Jnmh-m-submenu .Jnmh-subdl{
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    margin-left: -40px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+/*导航图标-三级菜单容器*/
+.NMH-g-navicon.Jnmh-open .Jnmh-m-submenu .Jnmh-subdd{
+    position: absolute;
+    line-height: normal;
+}
