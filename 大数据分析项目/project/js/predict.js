@@ -1,18 +1,18 @@
 function predict(pd){
     var proname=pd;
-    if(proname==="湖南省"){
+    if(proname==="长沙市"){
         var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_changsha.csv";
-    }else if(proname==="四川省"){
+    }else if(proname==="成都市"){
         var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_chengdu.csv";
-    }else if(proname==="黑龙江省"){
+    }else if(proname==="哈尔滨市"){
         var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_haerbin.csv";
-    }else if(proname==="浙江省"){
+    }else if(proname==="杭州市"){
         var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_hangzhou.csv";
-    }else if(proname==="山东省"){
+    }else if(proname==="济南市"){
         var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_jinan.csv";
-    }else if(proname==="河南省"){
+    }else if(proname==="郑州市"){
         var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_zhengzhou.csv";
-    }else if(proname==="内蒙古自治区"){
+    }else if(proname==="乌鲁木齐"){
         var cityfilename="https://raw.githubusercontent.com/HE-DE/DATA_FOR_PROJECT/main/city_for_pre/re_wulumuqi.csv";
     }
     var a = Promise.resolve(d3.csv(cityfilename));

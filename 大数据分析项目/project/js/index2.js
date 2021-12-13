@@ -83,10 +83,10 @@ function drawgeo() {
             .attr("fill","#aaa")
             .attr("font-size", 30)
             .text(pproname)
-            .on("click", function () {
-                window.localStorage.proname = pproname;
-                window.open("./predict.html");
-            });
+            // .on("click", function () {
+            //     window.localStorage.proname = pproname;
+            //     window.open("./predict.html");
+            // });
         var texts = svg
             .selectAll(".texts")
             .data(data.features)
