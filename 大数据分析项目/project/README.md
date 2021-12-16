@@ -1,6 +1,6 @@
 # 大数据分析实践：大气污染分析
 
-[TOC]
+
 
 本项目数据来源和思考方向来自于[ChinaVis2021](http://naq.cicidata.top:10443/chinavis/opendata),采用前端可视化的方法对实际问题进行分析
 
